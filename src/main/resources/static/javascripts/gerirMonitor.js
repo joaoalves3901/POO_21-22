@@ -113,12 +113,17 @@ window.onload = async function () {
 };
 
 
-async function submeter(semana, monitor, campo) {
+async function submeter() {
     try {
+        
+        semanaId = document.getElementById("semana").value;
+        monitorId = document.getElementById("monitor").value;
+        campoId = document.getElementById("campo").value;
+
         let obj = {
-            semana: document.getElementById("semana").value,
-            monitor: document.getElementById("monitor").value,
-            campo: document.getElementById("campo").value
+            semanaId: document.getElementById("semana").value,
+            monitorId: document.getElementById("monitor").value,
+            campoId: document.getElementById("campo").value
         };
 
         console.log(obj);

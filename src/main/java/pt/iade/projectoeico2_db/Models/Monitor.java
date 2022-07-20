@@ -9,24 +9,22 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "monitor")
     public class Monitor {
         @Id @GeneratedValue
             (strategy = GenerationType.IDENTITY)
-            @Column(name="monitor_id") private int id;
+            @Column(name="monitor_id") private int monitorId;
             @Column(name = "cv") private boolean cv;
 
             @OneToOne @JoinColumn(name="pessoa_id")
-            @JsonIgnoreProperties({"monitor"})
             private Pessoa pessoa;
 
             public Monitor() {}
 
             public int getId() {
-                return id;
+                return monitorId;
             }
 
             public boolean isCv() {
@@ -37,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
                 return pessoa;
             }
 
-            public Monitor(int id, boolean cv, Pessoa pessoa) {
-                this.id = id;
+            public Monitor(int monitorId, boolean cv, Pessoa pessoa) {
+                this.monitorId = monitorId;
                 this.cv = cv;
                 this.pessoa = pessoa;
             }

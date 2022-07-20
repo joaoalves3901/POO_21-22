@@ -10,11 +10,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import java.io.Console;
 import java.util.List;
+
+// import javax.management.monitor.Monitor;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,13 +33,7 @@ public class AdminController {
         logger.info("Sending all admins");
         return adminRepository.findAdmin();
     }
-    
-    @GetMapping(path = "/{adminId}/pedidosMonitor", produces= MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<Admin> pedidosMonitor(@PathVariable("adminId") Integer adminId) {
-        logger.info("Sending all pedidos for admin" + adminId);
-        return adminRepository.pedidosMonitor();
-    }    
-    
+        
     @PostMapping(path = "/gerirMonitor", produces= MediaType.APPLICATION_JSON_VALUE)
     public List<Admin> gerirMonitor(@RequestBody Campo_semana campo_semana) {
         logger.info("Monitor Updated by admin");
@@ -54,16 +46,8 @@ public class AdminController {
         return adminRepository.findAdminId(adminId);
     }
 
-
-    // @PostMapping(path = "", produces= MediaType.APPLICATION_JSON_VALUE)
-    // public Admin saveAnuncio(@RequestBody Admin newAnuncio) {
-    //     logger.info("Saving Anuncio:"+ newAnuncio.getDescricao());
-    //     Admin anuncio = adminRepository.save(newAnuncio);
-    //     return anuncio;
-    // }
-
     @PutMapping(path = "/aceitarMonitor", produces= MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<pt.iade.projectoeico2_db.Models.Admin> aceitarMonitor(@RequestBody int id) {
+    public int aceitarMonitor(@RequestBody int id) {
         logger.info("Sending all advertisements with id" + id);
         return adminRepository.aceitarMonitor(id);
     }

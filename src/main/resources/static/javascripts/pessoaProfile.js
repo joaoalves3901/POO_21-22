@@ -98,12 +98,12 @@ else{
 async function pedirMonitor() {
   try {
     let obj = {PessoaId};
-    alert(PessoaId);
+    // alert(PessoaId);
     let pessoa = await $.ajax({
       url: "/api/pessoas/pedirMonitor",
       method: "post",
       dataType: "json",
-      data: PessoaId,
+      data: JSON.stringify(PessoaId),
     //   data: JSON.stringify(obj),
       contentType: "application/json",
     });

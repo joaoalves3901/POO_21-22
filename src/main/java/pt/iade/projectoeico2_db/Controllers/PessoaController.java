@@ -9,11 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.MediaType;
-
-import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,6 +23,12 @@ public class PessoaController {
     private Logger logger = LoggerFactory.getLogger(PessoaController.class);
     @Autowired
     private PessoaRepository pessoaRepository;
+
+    @GetMapping(path = "/pedidosMonitor", produces= MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<Pessoa> pedidosMonitor() {
+        logger.info("Sending all pedidos for admin");
+        return pessoaRepository.pedidosMonitor();
+    }    
 
     @GetMapping(path = "/{pessoaId}", produces= MediaType.APPLICATION_JSON_VALUE)
     public Iterable<Pessoa> getPessoaById(@PathVariable Integer pessoaId) {

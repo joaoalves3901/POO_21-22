@@ -1,5 +1,6 @@
 var campoId;
 // var PessoaId = 10;
+PessoaId = sessionStorage.setItem("PessoaId", 10);
 var PessoaId = sessionStorage.getItem("PessoaId");
 var AdminId = sessionStorage.getItem("AdminId");
 var AdminId = 1;
@@ -129,13 +130,13 @@ window.onload = async function() {
 
 async function reservarCampo(campoId, PessoaId){
     try {
-        semana = document.getElementById("semana").value;
-        console.log(semana);
+        semanaId = document.getElementById("semana").value;
         PessoaId = sessionStorage.getItem("PessoaId");
         campoId = sessionStorage.getItem("campoId");
         let obj = {campoId, PessoaId, semana}
+        console.log(obj);
         let reservas = await $.ajax({
-          url: `/api/campos/${campoId}/reservas`,
+          url: `/api/inscricoes/reservas`,
           method: "post",
           dataType: "json",
           data: JSON.stringify(obj),

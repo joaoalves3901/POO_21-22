@@ -40,8 +40,13 @@ public class CampoController {
     @GetMapping(path = "/{campoId}/ativ", produces= MediaType.APPLICATION_JSON_VALUE)
     public Iterable<Campo> getCampoAtiv(@PathVariable int campoId) {
         logger.info("Sending user with id:"+ campoId);
-        System.out.println(campoId);
         return campoRepository.findCampoAtiv(campoId);
     }
+
+    // @PostMapping(path = "/reservas", produces= MediaType.APPLICATION_JSON_VALUE)
+    // public Iterable<Campo> CampoReserva(@RequestBody int campoId, int pessoaId, int semanaId ) {
+    //     logger.info("Campo: "+ campoId + "Reservado pela pessoa: " + pessoaId);
+    //     return campoRepository.CampoReserva(campoId, pessoaId, semanaId);
+    // };
 
 }
