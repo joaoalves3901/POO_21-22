@@ -37,7 +37,7 @@ public class AdminController {
     @PostMapping(path = "/gerirMonitor", produces= MediaType.APPLICATION_JSON_VALUE)
     public List<Admin> gerirMonitor(@RequestBody Campo_semana campo_semana) {
         logger.info("Monitor Updated by admin");
-        return adminRepository.gerirMonitor(campo_semana.getSemana().getId(), campo_semana.getMonitor().getId(), campo_semana.getCampo().getCampoId());
+        return adminRepository.gerirMonitor(campo_semana.getSemana().getId(), campo_semana.getMonitor().getMonitorId(), campo_semana.getCampo().getCampoId());
     }
 
     @GetMapping(path = "/{adminId}", produces= MediaType.APPLICATION_JSON_VALUE)

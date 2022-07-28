@@ -23,6 +23,7 @@ window.onload = async function () {
             dataType: "json",
         });
 
+
         let html10 = `<ul class="navbar-nav ms-auto">
     <li class="nav-item mx-3">
         <a class="nav-link text-white" href="/campos.html"
@@ -94,7 +95,7 @@ window.onload = async function () {
         }
         for (let monitor of monitores) {
             html1 +=
-                `<option value = ${monitor.id}>` +
+                `<option value = ${monitor.monitorId}>` +
                 monitor.pessoa.nome +
                 "</option> ";
         }
@@ -116,14 +117,10 @@ window.onload = async function () {
 async function submeter() {
     try {
         
-        semanaId = document.getElementById("semana").value;
-        monitorId = document.getElementById("monitor").value;
-        campoId = document.getElementById("campo").value;
-
         let obj = {
-            semanaId: document.getElementById("semana").value,
-            monitorId: document.getElementById("monitor").value,
-            campoId: document.getElementById("campo").value
+            "semana":{"id" :document.getElementById("semana").value},
+            "monitor":{"monitorid" : document.getElementById("monitor").value},
+            "campo":{ "campoid" : document.getElementById("campo").value}
         };
 
         console.log(obj);

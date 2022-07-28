@@ -12,7 +12,6 @@ public class Campo_semana {
 
             @ManyToOne @JoinColumn(name="monitor_id")
             @JsonIgnoreProperties({"campo_semana"})
-            @JsonProperty("monitor")
             private Monitor monitor;
 
 
@@ -23,7 +22,6 @@ public class Campo_semana {
 
             @ManyToOne @JoinColumn(name="campo_id")
             @JsonIgnoreProperties({"campo_semana"})
-            @JsonProperty("campo")
             private Campo campo;
 
 

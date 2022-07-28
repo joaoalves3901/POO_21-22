@@ -23,7 +23,7 @@ import javax.persistence.Table;
 
             public Monitor() {}
 
-            public int getId() {
+            public int getMonitorId() {
                 return monitorId;
             }
 

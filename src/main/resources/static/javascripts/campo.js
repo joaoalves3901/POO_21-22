@@ -24,6 +24,7 @@ window.onload = async function() {
         dataType: "json",
       });
 
+
       let html10 = `<ul class="navbar-nav ms-auto">
       <li class="nav-item mx-3">
           <a class="nav-link text-white" href="/campos.html"
@@ -133,7 +134,7 @@ async function reservarCampo(campoId, PessoaId){
         semanaId = document.getElementById("semana").value;
         PessoaId = sessionStorage.getItem("PessoaId");
         campoId = sessionStorage.getItem("campoId");
-        let obj = {campoId, PessoaId, semana}
+        let obj = {campoId, PessoaId, semanaId}
         console.log(obj);
         let reservas = await $.ajax({
           url: `/api/inscricoes/reservas`,

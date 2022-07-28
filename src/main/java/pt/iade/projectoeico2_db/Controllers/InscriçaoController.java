@@ -1,5 +1,6 @@
 package pt.iade.projectoeico2_db.Controllers;
 
+import pt.iade.projectoeico2_db.Models.Inscriçao;
 import pt.iade.projectoeico2_db.Models.Repositories.InscriçaoRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class InscriçaoController {
     private InscriçaoRepository inscriçaoRepository;
 
     @PostMapping(path = "/reservas", produces= MediaType.APPLICATION_JSON_VALUE)
-    public int CampoReserva(@RequestBody int campoId, int PessoaId, int semana ) {
+    public Iterable<Inscriçao> CampoReserva(@RequestBody int campoId, int PessoaId, int semana ) {
         logger.info("Campo: "+ campoId + "Reservado pela pessoa: " + PessoaId);
         return inscriçaoRepository.CampoReserva(campoId, PessoaId, semana);
     };
